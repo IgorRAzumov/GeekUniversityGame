@@ -1,0 +1,47 @@
+
+menuAtlas.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+startButton
+  rotate: false
+  xy: 1, 322
+  size: 300, 167
+  orig: 300, 167
+  offset: 0, 0
+  index: -1
+startButtonClick
+  rotate: false
+  xy: 1, 153
+  size: 300, 167
+  orig: 300, 167
+  offset: 0, 0
+  index: -1
+quitButton
+  rotate: false
+  xy: 303, 339
+  size: 300, 150
+  orig: 300, 150
+  offset: 0, 0
+  index: -1
+quitButtonClick
+  rotate: false
+  xy: 1, 1
+  size: 300, 150
+  orig: 300, 150
+  offset: 0, 0
+  index: -1
+white_cloud
+  rotate: false
+  xy: 303, 207
+  size: 300, 130
+  orig: 300, 130
+  offset: 0, 0
+  index: -1
+playerAircraft
+  rotate: false
+  xy: 605, 379
+  size: 94, 110
+  orig: 94, 110
+  offset: 0, 0
+  index: -1
