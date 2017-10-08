@@ -1,10 +1,8 @@
 package com.my_aircrafts_game.game.screens.gameScreen.views;
 
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.utils.Array;
 import com.my_aircrafts_game.game.assets.AudioManager;
 import com.my_aircrafts_game.game.assets.BulletsRegions;
@@ -43,7 +41,6 @@ public class GameScreenWorldRenderer {
     }
 
     public void drawWorld(SpriteBatch spriteBatch) {
-
         drawPowerUps(spriteBatch);
         drawBullets(spriteBatch);
         drawHero(spriteBatch);
@@ -51,7 +48,6 @@ public class GameScreenWorldRenderer {
         drawTurrets(spriteBatch);
         drawExplosions(spriteBatch);
     }
-
 
     private void drawPowerUps(SpriteBatch spriteBatch) {
         for (PowerUp powerUp : GeneralEmitter.getInstance().getActivePowerUps()) {

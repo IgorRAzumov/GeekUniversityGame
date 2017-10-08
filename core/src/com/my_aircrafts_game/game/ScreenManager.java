@@ -7,6 +7,7 @@ import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.my_aircrafts_game.game.assets.Assets;
 import com.my_aircrafts_game.game.screens.gameScreen.GameScreen;
 import com.my_aircrafts_game.game.screens.menuScreen.MenuScreen;
 
@@ -65,7 +66,7 @@ public class ScreenManager {
         }
         switch (type) {
             case MENU:
-                com.my_aircrafts_game.game.assets.Assets.getInstance().loadAssets(ScreenType.MENU);
+               Assets.getInstance().loadAssets(ScreenType.MENU);
                 game.setScreen(menuScreen);
                 break;
             case GAME:

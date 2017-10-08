@@ -39,7 +39,6 @@ public class GameSettings {
     public static final float PLAYER_CRAFT_ACCELERATION = 75f;
     public static final float PLAYER_CRAFT_DECELERATION = 0.97f;
     public static final float PLAYER_CRAFT_FIRE_RATE = 0.25f;
-    public static final int PLAYER_CRAFT_LIFE_COUNTER = 8;
     public static final int PLAYER_CRAFT_MAX_LIFE = 7;
 
     // Bullet

@@ -23,7 +23,7 @@ public class HeroAircraft extends AbstractAircraft {
         baseSpeed = PLAYER_CRAFT_MIN_SPEED;
         maxSpeed = PLAYER_CRAFT_MAX_SPEED;
 
-        lifeCounter = PLAYER_CRAFT_LIFE_COUNTER;
+        lifeCounter = PLAYER_CRAFT_MAX_LIFE;
         fireRate = PLAYER_CRAFT_FIRE_RATE;
 
         isItBot = false;

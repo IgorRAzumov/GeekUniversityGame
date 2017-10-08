@@ -15,6 +15,7 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Rectangle;
 import com.my_aircrafts_game.game.ScreenManager;
 
+import com.my_aircrafts_game.game.assets.AudioManager;
 import com.my_aircrafts_game.game.emitters.BulletEmitter;
 import com.my_aircrafts_game.game.emitters.GeneralEmitter;
 import com.my_aircrafts_game.game.screens.gameScreen.controller.GameScreenBackgroundController;
@@ -27,6 +28,8 @@ import com.my_aircrafts_game.game.screens.gameScreen.models.aircrafts.HeroAircra
 import com.my_aircrafts_game.game.screens.gameScreen.views.GameScreenBackgroundRenderer;
 import com.my_aircrafts_game.game.screens.gameScreen.views.GameScreenUIRenderer;
 import com.my_aircrafts_game.game.screens.gameScreen.views.GameScreenWorldRenderer;
+
+import static com.my_aircrafts_game.game.emitters.GeneralEmitter.getInstance;
 
 
 public class GameScreen implements Screen {
@@ -55,11 +58,11 @@ public class GameScreen implements Screen {
         gameScreenBackgroundController = new GameScreenBackgroundController();
         gameScreenBackgroundRenderer = new GameScreenBackgroundRenderer();
         gameScreenController = new GameScreenController();
+        gameScreenController.reset();
         gameScreenUIRenderer = new GameScreenUIRenderer();
         gameScreenWorldRenderer = new GameScreenWorldRenderer();
 
         createWorld();
-
         gameScreenBackgroundController.init(world);
         gameScreenBackgroundRenderer.init(world);
         gameScreenController.init(world);
@@ -124,7 +127,7 @@ public class GameScreen implements Screen {
 
 
         spriteBatch.setProjectionMatrix(ScreenManager.getInstance().getCamera().combined);
-        //  spriteBatch.totalRenderCalls=0;
+         spriteBatch.totalRenderCalls=0;
 
         spriteBatch.begin();
 
@@ -136,9 +139,13 @@ public class GameScreen implements Screen {
         gameScreenWorldRenderer.drawWorld(spriteBatch);
         gameScreenUIRenderer.drawUI(spriteBatch);
 
-        //   System.out.println(spriteBatch.totalRenderCalls);
+           System.out.println(spriteBatch.totalRenderCalls);
         spriteBatch.end();
         spriteBatch.setShader(null);
+
+        if (world.getHeroAircraft().getLifeCounter() < 1) {
+            ScreenManager.getInstance().switchScreen(ScreenManager.ScreenType.MENU);
+        }
       //  drawDebug();
     }
 

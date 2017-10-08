@@ -64,5 +64,9 @@ public class World {
     public Array<Turret> getActiveTurrets() {
         return UnitEmitter.getInstance().getActiveTurrets();
     }
+
+    public void addPowerUp(Vector2 position) {
+    GeneralEmitter.getInstance().addPowerUp(position);
+    }
 }
 

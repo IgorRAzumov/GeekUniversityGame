@@ -61,11 +61,13 @@ public class AudioManager {
         }
     }
 
-    void dispose() {
+    public void dispose() {
         for (Music music : musics.values()) {
+           music.stop();
             music.dispose();
         }
         for (Sound sound : sounds.values()) {
+            sound.stop();
             sound.dispose();
         }
     }

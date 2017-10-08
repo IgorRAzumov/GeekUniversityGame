@@ -5,6 +5,7 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.my_aircrafts_game.game.GameSettings;
+import com.my_aircrafts_game.game.ScreenManager;
 import com.my_aircrafts_game.game.emitters.BulletEmitter;
 import com.my_aircrafts_game.game.emitters.GeneralEmitter;
 import com.my_aircrafts_game.game.input.TouchDetector;
@@ -20,7 +21,6 @@ import static com.badlogic.gdx.math.MathUtils.sinDeg;
 import static com.my_aircrafts_game.game.GameSettings.DAMAGE_VELOCITY_Y;
 import static com.my_aircrafts_game.game.GameSettings.PLAYER_CRAFT_ACCELERATION;
 import static com.my_aircrafts_game.game.GameSettings.PLAYER_CRAFT_MAX_LIFE;
-import static com.my_aircrafts_game.game.emitters.GeneralEmitter.getInstance;
 
 public class GameScreenController {
     private World world;
@@ -35,10 +35,6 @@ public class GameScreenController {
         GeneralEmitter.getInstance().update(deltaTime);
         checkCollision();
         updateUI(deltaTime);
-
-
-       /* if (getInstance().getHeroAircraft().getLifeCounter() < 1) ScreenManager.getInstance().
-                switchScreen(ScreenManager.ScreenType.MENU);*/
     }
 
     private void updateUI(float deltaTime) {
@@ -109,7 +105,7 @@ public class GameScreenController {
                         if (aiAircraft.isDamaged()) {
                             world.addExplosion(aiAircraft.getPosition(), new Vector2(0f, DAMAGE_VELOCITY_Y));
                             if (MathUtils.random() < 0.15f) {
-                                getInstance().addPowerUp(aiAircraft.getPosition());
+                               world.addPowerUp(aiAircraft.getPosition());
                             }
                         }
                         bullet.destroy();
@@ -195,4 +191,7 @@ public class GameScreenController {
         }
     }
 
+    public void reset(){
+        GeneralEmitter.getInstance().reset();
+    }
 }
