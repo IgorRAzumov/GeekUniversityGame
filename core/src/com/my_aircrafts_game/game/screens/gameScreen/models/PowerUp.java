@@ -20,7 +20,7 @@ public class PowerUp implements Pool.Poolable {
         this.position = new Vector2(position);
         this.type = type;
         this.animation = new GameAnimation();
-        animation.init(4, position);
+        animation.init(4);
         active = true;
     }
 

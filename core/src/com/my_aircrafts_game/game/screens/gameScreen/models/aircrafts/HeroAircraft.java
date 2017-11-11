@@ -6,7 +6,6 @@ import static com.my_aircrafts_game.game.GameSettings.*;
 
 
 public class HeroAircraft extends AbstractAircraft {
-    public int score;
     private float damageAlarm;
     private float maxSpeed;
 

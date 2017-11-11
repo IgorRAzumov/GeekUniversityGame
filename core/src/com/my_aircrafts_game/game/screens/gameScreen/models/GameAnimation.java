@@ -1,8 +1,5 @@
 package com.my_aircrafts_game.game.screens.gameScreen.models;
 
-import com.badlogic.gdx.math.Vector2;
-import com.badlogic.gdx.utils.Pool;
-
 
 public class GameAnimation {
     private boolean active;

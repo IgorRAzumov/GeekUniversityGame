@@ -5,7 +5,18 @@ import com.badlogic.gdx.utils.Array;
 import com.my_aircrafts_game.game.Utils;
 import com.my_aircrafts_game.game.emitters.PowerUpEmitter;
 
+import static com.my_aircrafts_game.game.assets.Assets.*;
+
+
 public class PowerUpsRegions {
+    public static final String COIN_POWER_UP = "coin_power_up";
+    private static final String KILL_ALL_POWER_UP = "kill_all_power_up";
+    private static final String LIFE_POWER_UP = "life_power_up";
+    private static final int COIN_POWER_UP_FRAMES= 4;
+    private static final int KILL_ALL_POWER_UP_FRAMES = 4;
+    private static final int LIFE_POWER_UP_FRAMES = 4;
+
+
     private Array<TextureRegion> coinPowerUp;
     private Array<TextureRegion> killAllPowerUp;
     private Array<TextureRegion> lifePowerUp;
@@ -15,9 +26,14 @@ public class PowerUpsRegions {
     }
 
     public void reset() {
-        coinPowerUp = Utils.initAnimationsArrays(com.my_aircrafts_game.game.assets.Assets.getInstance().mainAtlas.findRegion("coin_power_up"), 4);
-        killAllPowerUp = Utils.initAnimationsArrays(com.my_aircrafts_game.game.assets.Assets.getInstance().mainAtlas.findRegion("kill_all_power_up"), 4);
-        lifePowerUp = Utils.initAnimationsArrays(com.my_aircrafts_game.game.assets.Assets.getInstance().mainAtlas.findRegion("life_power_up"), 4);
+        coinPowerUp = Utils.initAnimationsArrays(getInstance().mainAtlas.findRegion(COIN_POWER_UP),
+                COIN_POWER_UP_FRAMES);
+
+        killAllPowerUp = Utils.initAnimationsArrays(
+                getInstance().mainAtlas.findRegion(KILL_ALL_POWER_UP),KILL_ALL_POWER_UP_FRAMES);
+
+        lifePowerUp = Utils.initAnimationsArrays(getInstance().mainAtlas.findRegion(LIFE_POWER_UP),
+                LIFE_POWER_UP_FRAMES);
     }
 
     public Array<TextureRegion> getRegionsByType(PowerUpEmitter.PowerUpType type) {
@@ -35,9 +51,7 @@ public class PowerUpsRegions {
                 tempRegions = lifePowerUp;
                 break;
             }
-
         }
-        if (tempRegions == null) throw new RuntimeException("invalid type powerUp");
         return tempRegions;
     }
 }

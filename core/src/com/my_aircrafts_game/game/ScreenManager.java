@@ -25,7 +25,6 @@ public class ScreenManager {
     private Game game;
     private Viewport viewport;
     private Camera camera;
-
     private MenuScreen menuScreen;
     private GameScreen gameScreen;
 
@@ -33,12 +32,10 @@ public class ScreenManager {
 
     public void init(Game game) {
         this.game = game;
-
         camera = new OrthographicCamera(GameSettings.GAME_WIDTH, GameSettings.GAME_HEIGHT);
         viewport = new FitViewport(GameSettings.GAME_WIDTH, GameSettings.GAME_HEIGHT, camera);
         viewport.update(GameSettings.GAME_WIDTH, GameSettings.GAME_HEIGHT, true);
         viewport.apply();
-
         menuScreen = new MenuScreen(((StartGame) game).spriteBatch);
         gameScreen = new GameScreen(((StartGame) game).spriteBatch);
     }
@@ -58,9 +55,9 @@ public class ScreenManager {
 
     public void switchScreen(ScreenType type) {
         Screen screen = game.getScreen();
-        com.my_aircrafts_game.game.assets.Assets.getInstance().assetManager.clear();
-        com.my_aircrafts_game.game.assets.Assets.getInstance().assetManager.dispose();
-        com.my_aircrafts_game.game.assets.Assets.getInstance().assetManager = new AssetManager();
+        Assets.getInstance().assetManager.clear();
+        Assets.getInstance().assetManager.dispose();
+        Assets.getInstance().assetManager = new AssetManager();
         if (screen != null) {
             screen.dispose();
         }
@@ -70,7 +67,7 @@ public class ScreenManager {
                 game.setScreen(menuScreen);
                 break;
             case GAME:
-                com.my_aircrafts_game.game.assets.Assets.getInstance().loadAssets(ScreenType.GAME);
+                Assets.getInstance().loadAssets(ScreenType.GAME);
                 game.setScreen(gameScreen);
                 break;
         }

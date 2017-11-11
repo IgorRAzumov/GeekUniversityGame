@@ -7,6 +7,7 @@ import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.Pool;
 import com.my_aircrafts_game.game.assets.Assets;
 import com.my_aircrafts_game.game.GameSettings;
+import com.my_aircrafts_game.game.assets.BulletsRegions;
 
 public class BulletEmitter {
 
@@ -110,6 +111,6 @@ public class BulletEmitter {
     public void reset() {
         bulletsPool.clear();
         activeBullets.clear();
-        bulletImage = Assets.getInstance().mainAtlas.findRegion(GameSettings.BULLET_REGION);
+        bulletImage = Assets.getInstance().mainAtlas.findRegion(BulletsRegions.BULLET_REGION);
     }
 }

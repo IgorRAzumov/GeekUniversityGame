@@ -4,11 +4,12 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.Rectangle;
-import com.my_aircrafts_game.game.GameSettings;
 import com.my_aircrafts_game.game.assets.Assets;
 import com.my_aircrafts_game.game.assets.AudioManager;
 import com.my_aircrafts_game.game.screens.menuScreen.models.Cloud;
 import com.my_aircrafts_game.game.screens.menuScreen.models.World;
+
+import static com.my_aircrafts_game.game.GameSettings.*;
 
 
 public class MenuScreenBackgroundRenderer {
@@ -62,13 +63,13 @@ public class MenuScreenBackgroundRenderer {
     }
 
     private void reset() {
-        cloudImage = Assets.getInstance().mainAtlas.findRegion(GameSettings.CLOUD_REGION);
-        background = Assets.getInstance().assetManager.get(GameSettings.BACKGROUND_TEXTURE, Texture.class);
-        AudioManager.getInstance().playMusic("menuMusic", true, 0.7f);
+        cloudImage = Assets.getInstance().mainAtlas.findRegion(CLOUD_REGION);
+        background = Assets.getInstance().assetManager.get(MENU_BACKGROUND, Texture.class);
+        AudioManager.getInstance().playMusic(MENU_MUSIC, true, 0.7f);
     }
 
     public void dispose() {
-        AudioManager.getInstance().disposeMusic("menuMusic");
+        AudioManager.getInstance().disposeMusic(MENU_MUSIC);
         background.dispose();
     }
 

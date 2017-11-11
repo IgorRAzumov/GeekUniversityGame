@@ -93,34 +93,16 @@ public class GameBackground {
         updateRectangleBounds(-deltaTime, housesRect, housesRect1, 0.8f * baseSpeed);
     }
 
-    public void resetBackground() {
-        backgroundRect = backgroundRect1;
-        backgroundRect1 = getRectangleAfterReset(backgroundRect1.height);
+    public void resetBackground(Rectangle backgroundRect, Rectangle backgroundRect1) {
+        backgroundRect.set(backgroundRect1);
+        backgroundRect1.set(GAME_WIDTH, 0, GAME_WIDTH, backgroundRect.height);
     }
 
-    public void resetDistantHouses() {
-        distantHousesRect = distantHousesRect1;
-        distantHousesRect1 = getRectangleAfterReset(distantHousesRect1.height);
-    }
-
-    public void resetGreenHaze() {
-        greenHazeRect = greenHazeRect1;
-        greenHazeRect1 = getRectangleAfterReset(greenHazeRect1.height);
-    }
-
-    public void resetHouses() {
-        housesRect = housesRect1;
-        housesRect1 = getRectangleAfterReset(housesRect1.height);
-    }
 
     private void updateRectangleBounds(float deltaTime, Rectangle rectangle, Rectangle rectangle1,
                                        float speed) {
         rectangle.x += deltaTime * speed;
         rectangle1.x += deltaTime * speed;
-    }
-
-    private Rectangle getRectangleAfterReset(float rectangleHeight) {
-        return new Rectangle(GAME_WIDTH, 0, GAME_WIDTH, rectangleHeight);
     }
 
     public float getBaseSpeed() {

@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.Array;
+import com.my_aircrafts_game.game.GameSettings;
 import com.my_aircrafts_game.game.assets.AudioManager;
 import com.my_aircrafts_game.game.assets.BulletsRegions;
 import com.my_aircrafts_game.game.assets.ExplosionsRegions;
@@ -88,10 +89,10 @@ public class GameScreenWorldRenderer {
                 radius, radius, radius * 2f, radius * 2f, 1f, 1f, heroAircraft.getAngle());
 
         if (heroAircraft.wasShotNow()) {
-            AudioManager.getInstance().playSound("fire");
+            AudioManager.getInstance().playSound(GameSettings.FIRE_SOUND);
         }
         if (heroAircraft.wasCollisionByBullet()) {
-            AudioManager.getInstance().playSound("collisionByBullet");
+            AudioManager.getInstance().playSound(GameSettings.COLLISION_BY_BULLET_SOUND);
         }
     }
 
@@ -109,15 +110,15 @@ public class GameScreenWorldRenderer {
                     aiAircraft.getPosition().y - radius,
                     radius, radius, radius * 2f, radius * 2f, 1f, 1f, aiAircraft.getAngle());
             if (aiAircraft.wasShotNow()) {
-                AudioManager.getInstance().playSound("fire");
+                AudioManager.getInstance().playSound(GameSettings.FIRE_SOUND);
             }
 
             if (aiAircraft.wasCollisionByBullet()) {
-                AudioManager.getInstance().playSound("collisionByBullet");
+                AudioManager.getInstance().playSound(GameSettings.COLLISION_BY_BULLET_SOUND);
             }
 
             if (aiAircraft.wasCollisionByAircraft()) {
-                AudioManager.getInstance().playSound("collisionByAircraft");
+                AudioManager.getInstance().playSound(GameSettings.COLLISION_BY_AIRCRAFT_SOUND);
             }
         }
     }

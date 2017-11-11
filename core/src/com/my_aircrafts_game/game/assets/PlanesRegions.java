@@ -7,6 +7,13 @@ import com.my_aircrafts_game.game.screens.gameScreen.models.aircrafts.AircraftSt
 import static com.my_aircrafts_game.game.GameSettings.*;
 
 public class PlanesRegions {
+    private static final String HERO_DEFAULT = "hero_default";
+    private static final String HERO_DEFAULT_UP = "hero_default_up";
+    private static final String HERO_DEFAULT_DOWN = "hero_default_down";
+    private static final String HERO_DAMAGED = "hero_damaged";
+    private static final String HERO_DAMAGED_UP = "hero_damaged_up";
+    private static final String HERO_DAMAGED_DOWN = "hero_damaged_down";
+
     private ObjectMap<AircraftStatus, TextureAtlas.AtlasRegion> version11;
     private ObjectMap<AircraftStatus, TextureAtlas.AtlasRegion> version12;
     private ObjectMap<AircraftStatus, TextureAtlas.AtlasRegion> version21;
@@ -33,7 +40,6 @@ public class PlanesRegions {
             case 0:
                 return hero.get(status);
         }
-
         return null;
     }
 

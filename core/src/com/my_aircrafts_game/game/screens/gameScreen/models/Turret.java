@@ -19,7 +19,7 @@ public class Turret extends AbstractModel {
         velocity.set(-80f, 0f);
         hitArea.set(this.position.x, this.position.y,turretWidth, turretHeight);
         animation = new GameAnimation();
-        animation.init(9, this.position, velocity);
+        animation.init(9);
         firstFire = true;
         active = true;
     }

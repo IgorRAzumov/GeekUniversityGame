@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.Rectangle;
+import com.my_aircrafts_game.game.GameSettings;
 import com.my_aircrafts_game.game.assets.Assets;
 import com.my_aircrafts_game.game.assets.AudioManager;
 import com.my_aircrafts_game.game.screens.gameScreen.models.GameBackground;
@@ -14,7 +15,6 @@ import static com.my_aircrafts_game.game.GameSettings.GAME_WIDTH;
 
 
 public class GameScreenBackgroundRenderer {
-
     private Texture backgroundImage;
     private TextureAtlas.AtlasRegion moonImage;
     private TextureAtlas.AtlasRegion distantHousesImage;
@@ -28,7 +28,7 @@ public class GameScreenBackgroundRenderer {
 
     public void init(World world) {
         this.world = world;
-        AudioManager.getInstance().playMusic("gameMusic", true, 0.5f);
+        AudioManager.getInstance().playMusic(GameSettings.GAME_MUSIC, true, 0.5f);
     }
 
     public void drawBackground(SpriteBatch spriteBatch) {
@@ -67,16 +67,11 @@ public class GameScreenBackgroundRenderer {
     }
 
     public void reset() {
-        backgroundImage = Assets.getInstance().assetManager.get("background.png", Texture.class);
-        distantHousesImage = Assets.getInstance().mainAtlas.findRegion("distantHouses");
-        greenHazeImage = Assets.getInstance().mainAtlas.findRegion("greenHaze");
-        housesImage = Assets.getInstance().mainAtlas.findRegion("houses");
-        moonImage = Assets.getInstance().mainAtlas.findRegion("moon");
-
-    }
-
-    public TextureAtlas.AtlasRegion getMoonImage() {
-        return moonImage;
+        backgroundImage = Assets.getInstance().assetManager.get(GameSettings.GAME_BACKGROUND_ZERO_LAYER, Texture.class);
+        distantHousesImage = Assets.getInstance().mainAtlas.findRegion(GameSettings.GAME_BACKGROUND_FIRST_LAYER);
+        greenHazeImage = Assets.getInstance().mainAtlas.findRegion(GameSettings.GAME_BACKGROUND_SECOND_LAYER);
+        housesImage = Assets.getInstance().mainAtlas.findRegion(GameSettings.GAME_BACKGROUND_THIRD_LAYER);
+        moonImage = Assets.getInstance().mainAtlas.findRegion(GameSettings.GAME_BACKGROUND_ADDITION);
     }
 
     public float getDistantHousesImageHeight() {
@@ -93,14 +88,14 @@ public class GameScreenBackgroundRenderer {
 
     public void dispose() {
         backgroundImage.dispose();
-        AudioManager.getInstance().disposeMusic("gameMusic");
+        AudioManager.getInstance().disposeMusic(GameSettings.MENU_MUSIC);
     }
 
     public float getMoonImageWidth() {
         return moonImage.getRegionWidth();
     }
 
-    public float getMoonImageHigth() {
+    public float getMoonImageHeight() {
         return moonImage.getRegionHeight();
     }
 }

@@ -1,6 +1,5 @@
 package com.my_aircrafts_game.game.screens.gameScreen;
 
-import com.badlogic.gdx.Application;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 
@@ -13,14 +12,12 @@ import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Rectangle;
+import com.my_aircrafts_game.game.GameSettings;
 import com.my_aircrafts_game.game.ScreenManager;
 
-import com.my_aircrafts_game.game.assets.AudioManager;
-import com.my_aircrafts_game.game.emitters.BulletEmitter;
 import com.my_aircrafts_game.game.emitters.GeneralEmitter;
 import com.my_aircrafts_game.game.screens.gameScreen.controller.GameScreenBackgroundController;
 import com.my_aircrafts_game.game.screens.gameScreen.controller.GameScreenController;
-import com.my_aircrafts_game.game.screens.gameScreen.models.PowerUp;
 import com.my_aircrafts_game.game.screens.gameScreen.models.Turret;
 import com.my_aircrafts_game.game.screens.gameScreen.models.World;
 import com.my_aircrafts_game.game.screens.gameScreen.models.aircrafts.AiAircraft;
@@ -29,10 +26,9 @@ import com.my_aircrafts_game.game.screens.gameScreen.views.GameScreenBackgroundR
 import com.my_aircrafts_game.game.screens.gameScreen.views.GameScreenUIRenderer;
 import com.my_aircrafts_game.game.screens.gameScreen.views.GameScreenWorldRenderer;
 
-import static com.my_aircrafts_game.game.emitters.GeneralEmitter.getInstance;
-
 
 public class GameScreen implements Screen {
+    private static final String DAMAGE_ALARM = "damageAlarm";
     public static boolean isAndroid = true;
 
     private SpriteBatch spriteBatch;
@@ -83,7 +79,7 @@ public class GameScreen implements Screen {
                 gameScreenBackgroundRenderer.getGreenHazeImageHeight(),
                 gameScreenBackgroundRenderer.getHousesImageHeight(),
                 gameScreenBackgroundRenderer.getMoonImageWidth(),
-                gameScreenBackgroundRenderer.getMoonImageHigth());
+                gameScreenBackgroundRenderer.getMoonImageHeight());
 
         image = gameScreenWorldRenderer.getAircraftDefaultImage();
         world.addTurret(image.getRegionWidth(), image.getRegionHeight());
@@ -132,7 +128,7 @@ public class GameScreen implements Screen {
         spriteBatch.begin();
 
         spriteBatch.setShader(shaderProgram);
-        int damageAlarm = shaderProgram.getUniformLocation("damageAlarm");
+        int damageAlarm = shaderProgram.getUniformLocation(DAMAGE_ALARM);
         shaderProgram.setUniformf(damageAlarm, world.getHeroAircraft().getDamageAlarm());
 
         gameScreenBackgroundRenderer.drawBackground(spriteBatch);

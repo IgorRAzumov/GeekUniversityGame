@@ -16,7 +16,7 @@ public class Explosion extends AbstractModel implements Pool.Poolable {
     }
 
     public void init(GameAnimation animation, Vector2 position, Vector2 velocity) {
-        animation.init(6, position);
+        animation.init(6);
         this.animation = animation;
         this.position.set(position);
         this.velocity.set(velocity);

@@ -18,19 +18,23 @@ public class GameScreenBackgroundController {
         float baseSpeed = gameBackground.getBaseSpeed();
 
         if (gameBackground.getBackgroundRect1().x - (delta * baseSpeed) <= 0) {
-            gameBackground.resetBackground();
+            gameBackground.resetBackground(gameBackground.getBackgroundRect(),
+                    gameBackground.getBackgroundRect1());
         }
 
         if (gameBackground.getDistantHousesRect1().x - (delta * baseSpeed) <= 0) {
-            gameBackground.resetDistantHouses();
+            gameBackground.resetBackground(gameBackground.getDistantHousesRect(),
+                    gameBackground.getDistantHousesRect1());
         }
 
         if (gameBackground.getGreenHazeRect1().x - (delta * baseSpeed) <= 0) {
-            gameBackground.resetGreenHaze();
+            gameBackground.resetBackground(gameBackground.getGreenHazeRect(),
+                    gameBackground.getGreenHazeRect1());
         }
 
         if (gameBackground.getHousesRect1().x - (delta * baseSpeed) <= 0) {
-            gameBackground.resetHouses();
+            gameBackground.resetBackground(gameBackground.getHousesRect(),
+                    gameBackground.getHousesRect1());
         }
         gameBackground.update(delta);
 

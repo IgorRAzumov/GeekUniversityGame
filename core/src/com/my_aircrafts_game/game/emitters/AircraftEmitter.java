@@ -11,11 +11,7 @@ import static com.my_aircrafts_game.game.GameSettings.*;
 
 
 public class AircraftEmitter {
-    public HeroAircraft getHeroAircraft() {
-        return heroAircraft;
-    }
 
-    private HeroAircraft heroAircraft;
 
     private static final AircraftEmitter AI_AIR_CRAFT_EMITTER = new AircraftEmitter();
 
@@ -23,7 +19,8 @@ public class AircraftEmitter {
         return AI_AIR_CRAFT_EMITTER;
     }
 
-    public final Array<AiAircraft> activeAiAircrafts = new Array<AiAircraft>();
+    private HeroAircraft heroAircraft;
+    public Array<AiAircraft> activeAiAircrafts = new Array<AiAircraft>();
 
     private final Pool<AiAircraft> aiAirCraftsPool = new Pool<AiAircraft>(10, 15) {
         @Override
@@ -112,20 +109,33 @@ public class AircraftEmitter {
         activeAiAircrafts.add(aiAircraft);
     }
 
+    public HeroAircraft getHeroAircraft() {
+        return heroAircraft;
+    }
+
     private int getActualVersion() {
+        int version;
         switch (MathUtils.random(0, 4)) {
             case 0:
-                return 11;
+                version = 11;
+                break;
             case 1:
-                return 12;
+                version = 12;
+                break;
             case 2:
-                return 21;
+                version = 21;
+                break;
             case 3:
-                return 22;
+                version = 22;
+                break;
             case 4:
-                return 1;
+                version = 1;
+                break;
+            default:
+                version = 11;
+                break;
         }
-        throw new RuntimeException("Incorrect type aiAircraft version");
+        return version;
     }
 
     public void reset() {
@@ -138,5 +148,7 @@ public class AircraftEmitter {
             aiAircraft.dispose();
         }
     }
+
+
 }
 

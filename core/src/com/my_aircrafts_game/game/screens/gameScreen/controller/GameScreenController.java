@@ -67,12 +67,12 @@ public class GameScreenController {
                             }
                         }
                         case COIN_POWER_UP: {
-                            break;
+                           world.addMoney(GameSettings.MONEY_FOR_COIN);
                         }
                         case KILL_ALL_POWER_UP: {
                             for (AiAircraft aiAircraft : world.getActiveAircrafts()) {
                                 aiAircraft.takeDamage();
-                                world.getHeroAircraft().score += 300;
+                                world.addScore(300);
                             }
                             break;
                         }
@@ -101,7 +101,7 @@ public class GameScreenController {
                         aiAircraft.setCollisionByBullet(true);
                         aiAircraft.takeDamage();
 
-                        heroAircraft.score += GameSettings.SCORE_FOR_CRAFT;
+                        world.addScore(GameSettings.SCORE_FOR_CRAFT);
                         if (aiAircraft.isDamaged()) {
                             world.addExplosion(aiAircraft.getPosition(), new Vector2(0f, DAMAGE_VELOCITY_Y));
                             if (MathUtils.random() < 0.15f) {

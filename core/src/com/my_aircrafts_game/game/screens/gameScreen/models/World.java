@@ -10,6 +10,8 @@ import com.my_aircrafts_game.game.screens.gameScreen.models.aircrafts.AiAircraft
 import com.my_aircrafts_game.game.screens.gameScreen.models.aircrafts.HeroAircraft;
 
 public class World {
+    private int score;
+    private int money;
 
     private GameBackground gameBackground;
 
@@ -25,7 +27,6 @@ public class World {
     public void addTurret(int regionWidth, int regionHeight) {
         GeneralEmitter.getInstance().addTurret(regionWidth, regionHeight);
     }
-
 
     public void addAircrafts(int startAiAircraftsQuantity, int aircraftWidth, int aircraftHeight) {
         for (int i = startAiAircraftsQuantity; --i >= 0; ) {
@@ -66,7 +67,23 @@ public class World {
     }
 
     public void addPowerUp(Vector2 position) {
-    GeneralEmitter.getInstance().addPowerUp(position);
+        GeneralEmitter.getInstance().addPowerUp(position);
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void addScore(int score) {
+        this.score += score;
+    }
+
+    public int getMoney() {
+        return money;
+    }
+
+    public void addMoney(int money) {
+        this.money += money;
     }
 }
 

@@ -4,18 +4,20 @@ import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.utils.ObjectMap;
 
-import com.my_aircrafts_game.game.GameSettings;
 import com.my_aircrafts_game.game.ScreenManager;
+
+import static com.my_aircrafts_game.game.GameSettings.*;
 
 
 public class AudioManager {
-    private static final AudioManager AUDIO_MANAGER = new AudioManager();
 
+
+
+    private static final AudioManager AUDIO_MANAGER = new AudioManager();
     public static AudioManager getInstance() {
         return AUDIO_MANAGER;
     }
 
-    private ScreenManager.ScreenType screenType;
     private ObjectMap<String, Music> musics;
     private ObjectMap<String, Sound> sounds;
 
@@ -25,7 +27,6 @@ public class AudioManager {
     }
 
     public void init(ScreenManager.ScreenType screenType) {
-        this.screenType = screenType;
         reset(screenType);
     }
 
@@ -40,22 +41,21 @@ public class AudioManager {
         sounds.get(sound).play();
     }
 
-    void reset(ScreenManager.ScreenType screenType) {
+    private void reset(ScreenManager.ScreenType screenType) {
         dispose();
         musics.clear();
         sounds.clear();
 
         switch (screenType) {
             case MENU: {
-                musics.put("menuMusic", Assets.getInstance().assetManager.get(GameSettings.MENU_MUSIC, Music.class));
+                musics.put(MENU_MUSIC, Assets.getInstance().assetManager.get(MENU_MUSIC, Music.class));
                 break;
             }
             case GAME: {
-                musics.put("gameMusic", Assets.getInstance().assetManager.get(GameSettings.GAME_MUSIC, Music.class));
-
-                sounds.put("collisionByBullet", Assets.getInstance().assetManager.get(GameSettings.COLLISION_BY_BULLET, Sound.class));
-                sounds.put("collisionByAircraft", Assets.getInstance().assetManager.get(GameSettings.COLLISION_BY_AIRCRAFT, Sound.class));
-                sounds.put("fire", Assets.getInstance().assetManager.get(GameSettings.FIRE_SOUND, Sound.class));
+                musics.put(GAME_MUSIC, Assets.getInstance().assetManager.get(GAME_MUSIC, Music.class));
+                sounds.put(COLLISION_BY_BULLET_SOUND, Assets.getInstance().assetManager.get(COLLISION_BY_BULLET_SOUND, Sound.class));
+                sounds.put(COLLISION_BY_AIRCRAFT_SOUND, Assets.getInstance().assetManager.get(COLLISION_BY_AIRCRAFT_SOUND, Sound.class));
+                sounds.put(FIRE_SOUND, Assets.getInstance().assetManager.get(FIRE_SOUND, Sound.class));
                 break;
             }
         }
@@ -75,6 +75,5 @@ public class AudioManager {
     public void disposeMusic(String music) {
         musics.get(music).stop();
         musics.get(music).dispose();
-
     }
 }

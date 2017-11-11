@@ -1,410 +1,431 @@
 
-LevelOneAtlas.png
+levelOneAtlas.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
 distantHouses
   rotate: false
-  xy: 1, 804
+  xy: 1, 809
   size: 1024, 212
   orig: 1024, 212
   offset: 0, 0
   index: -1
 greenHaze
   rotate: false
-  xy: 1, 642
+  xy: 1, 647
   size: 1024, 160
   orig: 1024, 160
   offset: 0, 0
   index: -1
 houses
   rotate: false
-  xy: 1, 526
+  xy: 1, 531
   size: 1024, 114
   orig: 1024, 114
   offset: 0, 0
   index: -1
 explosion
   rotate: false
-  xy: 1027, 888
+  xy: 1027, 893
   size: 768, 128
   orig: 768, 128
   offset: 0, 0
   index: -1
 boss_1_damaged
   rotate: false
-  xy: 1, 268
+  xy: 1, 273
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
 Boss_1_damaged_down
   rotate: false
-  xy: 1027, 630
+  xy: 1027, 635
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
 boss_1_damaged_up
   rotate: false
-  xy: 1, 10
+  xy: 1, 15
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
 boss_1_default
   rotate: false
-  xy: 259, 268
+  xy: 259, 273
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
 boss_1_default_down
   rotate: false
-  xy: 1285, 630
+  xy: 1285, 635
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
 boss_1_default_up
   rotate: false
-  xy: 259, 10
+  xy: 259, 15
   size: 256, 256
   orig: 256, 256
   offset: 0, 0
   index: -1
 white_cloud
   rotate: false
-  xy: 517, 394
+  xy: 517, 399
   size: 300, 130
   orig: 300, 130
   offset: 0, 0
   index: -1
 coin_power_up
   rotate: false
-  xy: 1027, 564
+  xy: 1027, 569
   size: 256, 64
   orig: 256, 64
   offset: 0, 0
   index: -1
 kill_all_power_up
   rotate: false
-  xy: 517, 328
+  xy: 517, 333
   size: 256, 64
   orig: 256, 64
   offset: 0, 0
   index: -1
 life_power_up
   rotate: false
-  xy: 1285, 564
+  xy: 1285, 569
   size: 256, 64
   orig: 256, 64
   offset: 0, 0
   index: -1
 turret_fire1
   rotate: false
-  xy: 1543, 726
+  xy: 1543, 731
   size: 160, 160
   orig: 160, 160
   offset: 0, 0
   index: 1
 turret_fire9
   rotate: false
-  xy: 1543, 726
+  xy: 1543, 731
   size: 160, 160
   orig: 160, 160
   offset: 0, 0
   index: 9
 turret_default
   rotate: false
-  xy: 1543, 726
+  xy: 1543, 731
   size: 160, 160
   orig: 160, 160
   offset: 0, 0
   index: -1
 turret_fire2
   rotate: false
-  xy: 517, 166
+  xy: 517, 171
   size: 160, 160
   orig: 160, 160
   offset: 0, 0
   index: 2
 turret_fire3
   rotate: false
-  xy: 1543, 564
+  xy: 1543, 569
   size: 160, 160
   orig: 160, 160
   offset: 0, 0
   index: 3
 turret_fire4
   rotate: false
-  xy: 517, 4
+  xy: 517, 9
   size: 160, 160
   orig: 160, 160
   offset: 0, 0
   index: 4
 turret_fire5
   rotate: false
-  xy: 819, 364
+  xy: 819, 369
   size: 160, 160
   orig: 160, 160
   offset: 0, 0
   index: 5
 turret_fire6
   rotate: false
-  xy: 1797, 856
+  xy: 1797, 861
   size: 160, 160
   orig: 160, 160
   offset: 0, 0
   index: 6
 turret_fire7
   rotate: false
-  xy: 679, 166
+  xy: 679, 171
   size: 160, 160
   orig: 160, 160
   offset: 0, 0
   index: 7
 turret_fire8
   rotate: false
-  xy: 679, 4
+  xy: 679, 9
   size: 160, 160
   orig: 160, 160
   offset: 0, 0
   index: 8
 green_line
   rotate: false
-  xy: 1027, 532
+  xy: 1027, 537
   size: 200, 30
   orig: 200, 30
   offset: 0, 0
   index: -1
 red_line
   rotate: false
-  xy: 1229, 532
+  xy: 1229, 537
   size: 200, 30
   orig: 200, 30
   offset: 0, 0
   index: -1
 aircraft_11_damaged
   rotate: false
-  xy: 841, 234
+  xy: 841, 239
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 aircraft_11_damaged_down
   rotate: false
-  xy: 841, 104
+  xy: 841, 109
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 aircraft_11_damaged_up
   rotate: false
-  xy: 981, 396
+  xy: 981, 401
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 aircraft_11_default
   rotate: false
-  xy: 1111, 402
+  xy: 1111, 407
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 aircraft_11_default_down
   rotate: false
-  xy: 1241, 402
+  xy: 1241, 407
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 aircraft_11_default_up
   rotate: false
-  xy: 1371, 402
+  xy: 1371, 407
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 aircraft_12_damaged
   rotate: false
-  xy: 1501, 434
+  xy: 1501, 439
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 aircraft_12_damaged_down
   rotate: false
-  xy: 1631, 434
+  xy: 1631, 439
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 aircraft_12_damaged_up
   rotate: false
-  xy: 1705, 726
+  xy: 1705, 731
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 aircraft_12_default
   rotate: false
-  xy: 1705, 596
+  xy: 1705, 601
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 aircraft_12_default_down
   rotate: false
-  xy: 1835, 726
+  xy: 1835, 731
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 aircraft_12_default_up
   rotate: false
-  xy: 1835, 596
+  xy: 1835, 601
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 aircraft_21_damaged
   rotate: false
-  xy: 1761, 466
+  xy: 1761, 471
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 aircraft_21_damaged_down
   rotate: false
-  xy: 1891, 466
+  xy: 1891, 471
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 aircraft_21_damaged_up
   rotate: false
-  xy: 981, 266
+  xy: 981, 271
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 aircraft_21_default
   rotate: false
-  xy: 1111, 272
+  xy: 1111, 277
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 aircraft_21_default_down
   rotate: false
-  xy: 1241, 272
+  xy: 1241, 277
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 aircraft_21_default_up
   rotate: false
-  xy: 1371, 272
+  xy: 1371, 277
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 aircraft_22_damaged
   rotate: false
-  xy: 1501, 304
+  xy: 1501, 309
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 aircraft_22_damaged_down
   rotate: false
-  xy: 1631, 304
+  xy: 1631, 309
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 aircraft_22_damaged_up
   rotate: false
-  xy: 1761, 336
+  xy: 1761, 341
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 aircraft_22_default
   rotate: false
-  xy: 1891, 336
+  xy: 1891, 341
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 aircraft_22_default_down
   rotate: false
-  xy: 971, 136
+  xy: 971, 141
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 aircraft_22_default_up
   rotate: false
-  xy: 1501, 174
+  xy: 1501, 179
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 hero_damaged
   rotate: false
-  xy: 1631, 174
+  xy: 1631, 179
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 hero_damaged_down
   rotate: false
-  xy: 1761, 206
+  xy: 1761, 211
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 hero_damaged_up
   rotate: false
-  xy: 1891, 206
+  xy: 1891, 211
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 hero_default
   rotate: false
-  xy: 971, 6
+  xy: 971, 11
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 hero_default_down
   rotate: false
-  xy: 1761, 76
+  xy: 1761, 81
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 hero_default_up
   rotate: false
-  xy: 1891, 76
+  xy: 1891, 81
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
 moon
   rotate: false
-  xy: 1101, 136
+  xy: 1101, 141
   size: 128, 128
   orig: 128, 128
   offset: 0, 0
   index: -1
-rocket
+boss_bullet
   rotate: false
   xy: 1, 1
+  size: 40, 12
+  orig: 40, 12
+  offset: 0, 0
+  index: -1
+hero_bullet
+  rotate: false
+  xy: 775, 390
+  size: 40, 7
+  orig: 40, 7
+  offset: 0, 0
+  index: -1
+turret_bullet
+  rotate: false
+  xy: 1431, 560
+  size: 40, 7
+  orig: 40, 7
+  offset: 0, 0
+  index: -1
+rocket
+  rotate: false
+  xy: 1705, 884
   size: 20, 7
   orig: 20, 7
   offset: 0, 0
