@@ -2,12 +2,11 @@ package com.my_aircrafts_game.game.assets;
 
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.Array;
-import com.my_aircrafts_game.game.GameSettings;
 import com.my_aircrafts_game.game.Utils;
 
 
 public class ExplosionsRegions {
-    private static final String EXPLOSION = "explosion";
+    private static final String EXPLOSION_REGION = "explosion";
 
     private Array<TextureRegion> explosions;
 
@@ -20,7 +19,7 @@ public class ExplosionsRegions {
     }
 
     public void reset() {
-        explosions = Utils.initAnimationsArrays(
-                Assets.getInstance().mainAtlas.findRegion(EXPLOSION), 6);
+        explosions = Utils.initAnimationArray(
+                Assets.getInstance().mainAtlas.findRegion(EXPLOSION_REGION), 6, 1);
     }
 }

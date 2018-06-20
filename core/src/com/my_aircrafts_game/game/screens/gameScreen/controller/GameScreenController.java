@@ -5,16 +5,15 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.my_aircrafts_game.game.GameSettings;
-import com.my_aircrafts_game.game.ScreenManager;
 import com.my_aircrafts_game.game.emitters.BulletEmitter;
 import com.my_aircrafts_game.game.emitters.GeneralEmitter;
 import com.my_aircrafts_game.game.input.TouchDetector;
 import com.my_aircrafts_game.game.screens.gameScreen.GameScreen;
 import com.my_aircrafts_game.game.screens.gameScreen.models.PowerUp;
+import com.my_aircrafts_game.game.screens.gameScreen.models.World;
 import com.my_aircrafts_game.game.screens.gameScreen.models.aircrafts.AiAircraft;
 import com.my_aircrafts_game.game.screens.gameScreen.models.aircrafts.AircraftStatus;
 import com.my_aircrafts_game.game.screens.gameScreen.models.aircrafts.HeroAircraft;
-import com.my_aircrafts_game.game.screens.gameScreen.models.World;
 
 import static com.badlogic.gdx.math.MathUtils.cosDeg;
 import static com.badlogic.gdx.math.MathUtils.sinDeg;
@@ -29,6 +28,10 @@ public class GameScreenController {
     public void init(World world) {
         this.world = world;
         touchDetector = new TouchDetector();
+    }
+
+    public GameScreenController() {
+        reset();
     }
 
     public void update(float deltaTime) {
@@ -67,7 +70,7 @@ public class GameScreenController {
                             }
                         }
                         case COIN_POWER_UP: {
-                           world.addMoney(GameSettings.MONEY_FOR_COIN);
+                            world.addMoney(GameSettings.MONEY_FOR_COIN);
                         }
                         case KILL_ALL_POWER_UP: {
                             for (AiAircraft aiAircraft : world.getActiveAircrafts()) {
@@ -105,7 +108,7 @@ public class GameScreenController {
                         if (aiAircraft.isDamaged()) {
                             world.addExplosion(aiAircraft.getPosition(), new Vector2(0f, DAMAGE_VELOCITY_Y));
                             if (MathUtils.random() < 0.15f) {
-                               world.addPowerUp(aiAircraft.getPosition());
+                                world.addPowerUp(aiAircraft.getPosition());
                             }
                         }
                         bullet.destroy();
@@ -191,7 +194,7 @@ public class GameScreenController {
         }
     }
 
-    public void reset(){
+    public void reset() {
         GeneralEmitter.getInstance().reset();
     }
 }

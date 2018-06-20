@@ -2,19 +2,15 @@ package com.my_aircrafts_game.game.screens.gameScreen;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
-
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
-
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.glutils.ShaderProgram;
-
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Rectangle;
 import com.my_aircrafts_game.game.GameSettings;
 import com.my_aircrafts_game.game.ScreenManager;
-
 import com.my_aircrafts_game.game.emitters.GeneralEmitter;
 import com.my_aircrafts_game.game.screens.gameScreen.controller.GameScreenBackgroundController;
 import com.my_aircrafts_game.game.screens.gameScreen.controller.GameScreenController;
@@ -49,15 +45,12 @@ public class GameScreen implements Screen {
 
     @Override
     public void show() {
-
         shapeRenderer = new ShapeRenderer();
         gameScreenBackgroundController = new GameScreenBackgroundController();
         gameScreenBackgroundRenderer = new GameScreenBackgroundRenderer();
         gameScreenController = new GameScreenController();
-        gameScreenController.reset();
         gameScreenUIRenderer = new GameScreenUIRenderer();
         gameScreenWorldRenderer = new GameScreenWorldRenderer();
-
         createWorld();
         gameScreenBackgroundController.init(world);
         gameScreenBackgroundRenderer.init(world);
@@ -75,17 +68,18 @@ public class GameScreen implements Screen {
     private void createWorld() {
         TextureAtlas.AtlasRegion image;
         world = new World();
-        world.createBackground(100f, gameScreenBackgroundRenderer.getDistantHousesImageHeight(),
+        world.createBackground(GameSettings.BACKGROUND_BASE_SPEED,
+                gameScreenBackgroundRenderer.getDistantHousesImageHeight(),
                 gameScreenBackgroundRenderer.getGreenHazeImageHeight(),
                 gameScreenBackgroundRenderer.getHousesImageHeight(),
                 gameScreenBackgroundRenderer.getMoonImageWidth(),
                 gameScreenBackgroundRenderer.getMoonImageHeight());
 
-        image = gameScreenWorldRenderer.getAircraftDefaultImage();
+        image = gameScreenWorldRenderer.getAircraftDefaultImage();////
         world.addTurret(image.getRegionWidth(), image.getRegionHeight());
 
         image = gameScreenWorldRenderer.getAircraftDefaultImage();
-        world.addAircrafts(8, image.getRegionWidth(), image.getRegionHeight());
+        world.addAircraft(3, image.getRegionWidth(), image.getRegionHeight());
 
         image = gameScreenWorldRenderer.getHeroDefaultImage();
         world.addHeroAircraft(image.getRegionWidth(), image.getRegionHeight());
@@ -108,7 +102,7 @@ public class GameScreen implements Screen {
 
         for (Turret turret : world.getActiveTurrets()) {
             hitArea = turret.getHitArea();
-            shapeRenderer.rect(hitArea.x, hitArea.y,hitArea.width, hitArea.height);
+            shapeRenderer.rect(hitArea.x, hitArea.y, hitArea.width, hitArea.height);
         }
 
         shapeRenderer.end();
@@ -118,31 +112,27 @@ public class GameScreen implements Screen {
     public void render(float delta) {
         gameScreenBackgroundController.update(delta);
         gameScreenController.update(delta);
+
         Gdx.gl.glClearColor(0, 0, 0, 0);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
-
         spriteBatch.setProjectionMatrix(ScreenManager.getInstance().getCamera().combined);
-         spriteBatch.totalRenderCalls=0;
-
+        spriteBatch.totalRenderCalls = 0;
         spriteBatch.begin();
 
         spriteBatch.setShader(shaderProgram);
         int damageAlarm = shaderProgram.getUniformLocation(DAMAGE_ALARM);
         shaderProgram.setUniformf(damageAlarm, world.getHeroAircraft().getDamageAlarm());
-
         gameScreenBackgroundRenderer.drawBackground(spriteBatch);
         gameScreenWorldRenderer.drawWorld(spriteBatch);
         gameScreenUIRenderer.drawUI(spriteBatch);
 
-           System.out.println(spriteBatch.totalRenderCalls);
         spriteBatch.end();
         spriteBatch.setShader(null);
 
         if (world.getHeroAircraft().getLifeCounter() < 1) {
             ScreenManager.getInstance().switchScreen(ScreenManager.ScreenType.MENU);
         }
-      //  drawDebug();
+        //  drawDebug();
     }
 
     @Override

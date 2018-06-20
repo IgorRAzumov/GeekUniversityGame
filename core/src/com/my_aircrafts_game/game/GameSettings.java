@@ -3,11 +3,21 @@ package com.my_aircrafts_game.game;
 
 public class GameSettings {
     //MenuScreenController
-    public static final String CLOUD_REGION = "white_cloud";
+
     public static final float CLOUD_MIN_SCALE = 0.5f;
     public static final float CLOUD_MAX_SCALE = 0.9f;
     public static final int CLOUDS_QUANTITY = 70;
-    public static final float CLOUDS_VELOCITY = -100f;
+    public static final float CLOUDS_VELOCITY_X = -100f;
+    public static final float CLOUDS_VELOCITY_Y = 0;
+    public static final float START_BUTTON_WIDTH = 300f;
+    public static final float START_BUTTON_POSITION_X = 50f;
+    public static final float START_BUTTON_POSITION_Y = 50f;
+    public static final float START_BUTTON_HEIGHT = 167;
+    public static final float QUIT_BUTTON_POSITION_X = 930f;
+    public static final float QUIT_BUTTON_POSITION_Y = 50f;
+    public static final float QUIT_BUTTON_WIDTH = 300f;
+    public static final float QUIT_BUTTON_HEIGHT = 167;
+
 
     //GameWorld
     public static final int SCORE_FOR_CRAFT = 100;
@@ -38,7 +48,7 @@ public class GameSettings {
     public static final int QUANTITY_TOUCH = 5;
 
     //Assets
-    public static final String MENU_BACKGROUND = "menuBackground.jpg";
+
     public static final String GAME_BACKGROUND_FIRST_LAYER = "distantHouses";
     public static final String GAME_BACKGROUND_SECOND_LAYER = "greenHaze";
     public static final String GAME_BACKGROUND_THIRD_LAYER = "houses";
@@ -55,11 +65,15 @@ public class GameSettings {
     public static final String FIRE_SOUND = "fire.wav";
     public static final String FONT = "font.fnt";
 
+    //Menu Screen Ui
+    public static final String START_BUTTON_REGION = "startButtonClick";
+    public static final String QUIT_BUTTON_REGION = "quitButtonClick";
 
+    //Menu Screen Background
+    public static final String CLOUD_REGION = "white_cloud";
+    public static final String MENU_BACKGROUND_TEXTURE = "menuBackground.jpg";
+    //Menu Screen
+    public static final int MENU_BACKGROUND_CLOUDS_QUANTITY = 70;
 
-
-
-
-
-
+    public static float BACKGROUND_BASE_SPEED = 100;
 }

@@ -13,13 +13,14 @@ import com.my_aircrafts_game.game.screens.menuScreen.MenuScreen;
 
 
 public class ScreenManager {
-    private static final ScreenManager SCREEN_MANAGER_INSTANCE = new ScreenManager();
-    public static ScreenManager getInstance() {
-        return SCREEN_MANAGER_INSTANCE;
-    }
-
     public enum ScreenType {
         MENU, GAME
+    }
+
+    private static final ScreenManager SCREEN_MANAGER_INSTANCE = new ScreenManager();
+
+    public static ScreenManager getInstance() {
+        return SCREEN_MANAGER_INSTANCE;
     }
 
     private Game game;

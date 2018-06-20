@@ -3,16 +3,16 @@ package com.my_aircrafts_game.game.assets;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.utils.ObjectMap;
-
 import com.my_aircrafts_game.game.ScreenManager;
 
-import static com.my_aircrafts_game.game.GameSettings.*;
+import static com.my_aircrafts_game.game.GameSettings.COLLISION_BY_AIRCRAFT_SOUND;
+import static com.my_aircrafts_game.game.GameSettings.COLLISION_BY_BULLET_SOUND;
+import static com.my_aircrafts_game.game.GameSettings.FIRE_SOUND;
+import static com.my_aircrafts_game.game.GameSettings.GAME_MUSIC;
+import static com.my_aircrafts_game.game.GameSettings.MENU_MUSIC;
 
 
 public class AudioManager {
-
-
-
     private static final AudioManager AUDIO_MANAGER = new AudioManager();
     public static AudioManager getInstance() {
         return AUDIO_MANAGER;
@@ -29,7 +29,6 @@ public class AudioManager {
     public void init(ScreenManager.ScreenType screenType) {
         reset(screenType);
     }
-
 
     public void playMusic(String music, boolean looping, float volume) {
         musics.get(music).play();

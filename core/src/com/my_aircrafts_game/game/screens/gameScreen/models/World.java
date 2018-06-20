@@ -2,7 +2,6 @@ package com.my_aircrafts_game.game.screens.gameScreen.models;
 
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.Array;
-import com.my_aircrafts_game.game.GameSettings;
 import com.my_aircrafts_game.game.emitters.BulletEmitter;
 import com.my_aircrafts_game.game.emitters.GeneralEmitter;
 import com.my_aircrafts_game.game.emitters.UnitEmitter;
@@ -28,7 +27,7 @@ public class World {
         GeneralEmitter.getInstance().addTurret(regionWidth, regionHeight);
     }
 
-    public void addAircrafts(int startAiAircraftsQuantity, int aircraftWidth, int aircraftHeight) {
+    public void addAircraft(int startAiAircraftsQuantity, int aircraftWidth, int aircraftHeight) {
         for (int i = startAiAircraftsQuantity; --i >= 0; ) {
             GeneralEmitter.getInstance().addAiAircraft(aircraftWidth, aircraftHeight);
         }

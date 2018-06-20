@@ -5,21 +5,19 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Rectangle;
 import com.my_aircrafts_game.game.GameSettings;
 import com.my_aircrafts_game.game.ScreenManager;
-import com.my_aircrafts_game.game.screens.menuScreen.models.World;
 import com.my_aircrafts_game.game.input.GameInputProcessor;
 import com.my_aircrafts_game.game.screens.menuScreen.models.Cloud;
+import com.my_aircrafts_game.game.screens.menuScreen.models.World;
 
 public class MenuScreenController {
-//    public enum ButtonType {START_BUTTON, QUIT_BUTTON}
-
     private World world;
 
-    public void init(World world) {
+    public MenuScreenController(World world) {
         this.world = world;
     }
 
     public void update(float deltaTime) {
-        checkTouchButton(deltaTime);
+        checkTouchButton();
 
         for (Cloud cloud : world.getClouds()) {
             cloud.update(deltaTime);
@@ -27,7 +25,7 @@ public class MenuScreenController {
         }
     }
 
-    private void checkTouchButton(float deltaTime) {
+    private void checkTouchButton() {
         GameInputProcessor gip = (GameInputProcessor) Gdx.input.getInputProcessor();
         Rectangle buttonBounds;
 
@@ -39,7 +37,7 @@ public class MenuScreenController {
 
         buttonBounds = world.getQuitButton().getBounds();
         if (gip.isTouchedInArea(buttonBounds.x, buttonBounds.y,
-                buttonBounds.width, buttonBounds.height) > -1) {//menuScreenUIRenderer.getQuitButtonImageHeight()) > -1) {
+                buttonBounds.width, buttonBounds.height) > -1) {
             Gdx.app.exit();
         }
     }
@@ -51,10 +49,5 @@ public class MenuScreenController {
         if (cloudBounds.x < -halfWidth) {
             cloud.setPositionX(GameSettings.GAME_WIDTH + halfWidth);
         }
-    }
-
-
-    public void dispose() {
-
     }
 }

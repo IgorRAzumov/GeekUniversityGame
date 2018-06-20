@@ -14,16 +14,17 @@ public class Utils {
         return MathUtils.radiansToDegrees * (float) atan2(y2 - y1, x2 - x1);
     }
 
-    public static Array<TextureRegion> initAnimationsArrays(TextureAtlas.AtlasRegion atlasRegion,
-                                                            int framesCount) {
-        Array<TextureRegion> animationRegions = new Array<TextureRegion>(framesCount);
-        int frameWidth = atlasRegion.getRegionWidth() / framesCount;
-        int frameHeight = atlasRegion.getRegionHeight();
+    public static Array<TextureRegion> initAnimationArray(TextureAtlas.AtlasRegion atlasRegion,
+                                                          int framesPerRow, int rowCount) {
+        Array<TextureRegion> animationRegions = new Array<TextureRegion>(framesPerRow);
+        int frameWidth = atlasRegion.getRegionWidth() / framesPerRow;
+        int frameHeight = atlasRegion.getRegionHeight() / rowCount;
         TextureRegion[][] tmp = atlasRegion.split(frameWidth, frameHeight);
-        //  int index = 0;
-        int j = 0;// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        for (int i = 0; i < framesCount; i++) {
-            animationRegions.add(tmp[j][i]);
+
+        for (int i = 0; i < rowCount; i++) {
+            for (int j = 0; j < framesPerRow; j++) {
+                animationRegions.add(tmp[i][j]);
+            }
         }
         return animationRegions;
     }

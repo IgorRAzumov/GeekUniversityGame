@@ -8,12 +8,20 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.my_aircrafts_game.game.ScreenManager;
 
-import static com.my_aircrafts_game.game.GameSettings.*;
+import static com.my_aircrafts_game.game.GameSettings.COLLISION_BY_AIRCRAFT_SOUND;
+import static com.my_aircrafts_game.game.GameSettings.COLLISION_BY_BULLET_SOUND;
+import static com.my_aircrafts_game.game.GameSettings.FIRE_SOUND;
+import static com.my_aircrafts_game.game.GameSettings.FONT;
+import static com.my_aircrafts_game.game.GameSettings.GAME_ATLAS;
+import static com.my_aircrafts_game.game.GameSettings.GAME_BACKGROUND_ZERO_LAYER;
+import static com.my_aircrafts_game.game.GameSettings.GAME_MUSIC;
+import static com.my_aircrafts_game.game.GameSettings.MENU_ATLAS;
+import static com.my_aircrafts_game.game.GameSettings.MENU_BACKGROUND_TEXTURE;
+import static com.my_aircrafts_game.game.GameSettings.MENU_MUSIC;
 
 
 public class Assets {
     private static final Assets ASSETS_INSTANCE = new Assets();
-
     public static Assets getInstance() {
         return ASSETS_INSTANCE;
     }
@@ -31,7 +39,7 @@ public class Assets {
         switch (type) {
             case MENU:
                 assetManager.load(MENU_MUSIC, Music.class);
-                assetManager.load(MENU_BACKGROUND, Texture.class);
+                assetManager.load(MENU_BACKGROUND_TEXTURE, Texture.class);
                 assetManager.load(MENU_ATLAS, TextureAtlas.class);
                 assetManager.finishLoading();
                 mainAtlas = assetManager.get(MENU_ATLAS, TextureAtlas.class);

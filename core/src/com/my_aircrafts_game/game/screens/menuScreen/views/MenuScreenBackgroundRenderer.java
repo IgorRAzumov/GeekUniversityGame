@@ -9,7 +9,9 @@ import com.my_aircrafts_game.game.assets.AudioManager;
 import com.my_aircrafts_game.game.screens.menuScreen.models.Cloud;
 import com.my_aircrafts_game.game.screens.menuScreen.models.World;
 
-import static com.my_aircrafts_game.game.GameSettings.*;
+import static com.my_aircrafts_game.game.GameSettings.CLOUD_REGION;
+import static com.my_aircrafts_game.game.GameSettings.MENU_BACKGROUND_TEXTURE;
+import static com.my_aircrafts_game.game.GameSettings.MENU_MUSIC;
 
 
 public class MenuScreenBackgroundRenderer {
@@ -17,11 +19,7 @@ public class MenuScreenBackgroundRenderer {
     private Texture background;
     private World world;
 
-    public MenuScreenBackgroundRenderer() {
-        reset();
-    }
-
-    public void init(World world) {
+    public MenuScreenBackgroundRenderer(World world) {
         reset();
         this.world = world;
     }
@@ -49,8 +47,8 @@ public class MenuScreenBackgroundRenderer {
             halfHeight = cloudBounds.height / 2f * scale;
 
             spriteBatch.draw(cloudImage, cloudBounds.x - halfWidth, cloudBounds.y - halfHeight,
-                    halfWidth, halfHeight, halfWidth * 2f, halfHeight * 2f, scale, scale, 0);
-
+                    halfWidth, halfHeight, halfWidth * 2f, halfHeight * 2f,
+                    scale, scale, 0);
         }
     }
 
@@ -58,13 +56,13 @@ public class MenuScreenBackgroundRenderer {
         return cloudImage.getRegionWidth();
     }
 
-    public float getCloudImageHeigth() {
+    public float getCloudImageHeight() {
         return cloudImage.getRotatedPackedHeight();
     }
 
     private void reset() {
         cloudImage = Assets.getInstance().mainAtlas.findRegion(CLOUD_REGION);
-        background = Assets.getInstance().assetManager.get(MENU_BACKGROUND, Texture.class);
+        background = Assets.getInstance().assetManager.get(MENU_BACKGROUND_TEXTURE, Texture.class);
         AudioManager.getInstance().playMusic(MENU_MUSIC, true, 0.7f);
     }
 

@@ -4,8 +4,8 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.my_aircrafts_game.game.GameSettings;
 import com.my_aircrafts_game.game.ScreenManager;
-import com.my_aircrafts_game.game.input.GameInputProcessor;
 import com.my_aircrafts_game.game.screens.menuScreen.contoller.MenuScreenController;
 import com.my_aircrafts_game.game.screens.menuScreen.models.World;
 import com.my_aircrafts_game.game.screens.menuScreen.views.MenuScreenBackgroundRenderer;
@@ -24,21 +24,24 @@ public class MenuScreen implements Screen {
 
     @Override
     public void show() {
-        menuScreenUIRenderer = new MenuScreenUIRenderer();
-        menuScreenBackgroundRenderer = new MenuScreenBackgroundRenderer();
-        menuScreenController = new MenuScreenController();
 
         world = new World();
-        world.createClouds(70, menuScreenBackgroundRenderer.getCloudImageWidth(),
-                menuScreenBackgroundRenderer.getCloudImageHeigth());
+        menuScreenUIRenderer = new MenuScreenUIRenderer(world);
+        menuScreenBackgroundRenderer = new MenuScreenBackgroundRenderer(world);
+        menuScreenController = new MenuScreenController(world);
+
+        world.createClouds(GameSettings.MENU_BACKGROUND_CLOUDS_QUANTITY,
+                menuScreenBackgroundRenderer.getCloudImageWidth(),//
+                menuScreenBackgroundRenderer.getCloudImageHeight());//
         world.createButtons();
+    }
 
-        menuScreenUIRenderer.init(world);
-        menuScreenBackgroundRenderer.init(world);
-        menuScreenController.init(world);
-
-        GameInputProcessor gip = (GameInputProcessor) Gdx.input.getInputProcessor();
-        gip.clear();
+    private void createWorld() {
+        world = new World();
+        world.createClouds(GameSettings.MENU_BACKGROUND_CLOUDS_QUANTITY,
+                menuScreenBackgroundRenderer.getCloudImageWidth(),//
+                menuScreenBackgroundRenderer.getCloudImageHeight());//
+        world.createButtons();
     }
 
     @Override
@@ -49,8 +52,10 @@ public class MenuScreen implements Screen {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         spriteBatch.setProjectionMatrix(ScreenManager.getInstance().getCamera().combined);
         spriteBatch.begin();
+
         menuScreenBackgroundRenderer.drawBackground(spriteBatch);
         menuScreenUIRenderer.drawUI(spriteBatch);
+
         spriteBatch.end();
     }
 

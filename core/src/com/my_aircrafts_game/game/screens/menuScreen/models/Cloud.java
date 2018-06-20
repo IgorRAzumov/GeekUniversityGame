@@ -3,7 +3,13 @@ package com.my_aircrafts_game.game.screens.menuScreen.models;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
-import com.my_aircrafts_game.game.GameSettings;
+
+import static com.my_aircrafts_game.game.GameSettings.CLOUDS_VELOCITY_X;
+import static com.my_aircrafts_game.game.GameSettings.CLOUDS_VELOCITY_Y;
+import static com.my_aircrafts_game.game.GameSettings.CLOUD_MAX_SCALE;
+import static com.my_aircrafts_game.game.GameSettings.CLOUD_MIN_SCALE;
+import static com.my_aircrafts_game.game.GameSettings.GAME_HEIGHT;
+import static com.my_aircrafts_game.game.GameSettings.GAME_WIDTH;
 
 
 public class Cloud {
@@ -13,15 +19,15 @@ public class Cloud {
     private float scale;
 
     public Cloud() {
-        position = new Vector2(0f, 0f);
-        velocity = new Vector2(0f, 0f);
+        position = new Vector2();
+        velocity = new Vector2();
         cloudBounds = new Rectangle();
     }
 
     public void init(float cloudWidth, float cloudHeight) {
-        scale = MathUtils.random(GameSettings.CLOUD_MIN_SCALE, GameSettings.CLOUD_MAX_SCALE);
-        position.set(MathUtils.random(GameSettings.GAME_WIDTH), MathUtils.random(GameSettings.GAME_HEIGHT));
-        velocity.set(GameSettings.CLOUDS_VELOCITY, 0);
+        scale = MathUtils.random(CLOUD_MIN_SCALE, CLOUD_MAX_SCALE);
+        position.set(MathUtils.random(GAME_WIDTH), MathUtils.random(GAME_HEIGHT));
+        velocity.set(CLOUDS_VELOCITY_X, CLOUDS_VELOCITY_Y);
         cloudBounds.set(position.x, position.y, cloudWidth * scale, cloudHeight * scale);
     }
 
